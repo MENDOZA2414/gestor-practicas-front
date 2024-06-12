@@ -10,7 +10,7 @@ const Formatos = () => {
     useEffect(() => {
         const fetchFormatos = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/formatos');
+                const response = await axios.get('https://gestor-practicas-back-production.up.railway.app/api/formatos');
                 setFormatos(response.data);
             } catch (err) {
                 setError('Error fetching formatos');

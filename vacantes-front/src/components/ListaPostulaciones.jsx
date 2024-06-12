@@ -74,7 +74,7 @@ const ListaPostulaciones = ({ postulaciones, handleApprove, handleReject }) => {
                             <td data-label="Correo">{item.correoAlumno}</td>
                             <td data-label="Carta de Presentación">
                                 <a 
-                                  href={`http://localhost:3001/postulacionalumno/${item.id}`} 
+                                  href={`https://gestor-practicas-back-production.up.railway.app/postulacionalumno/${item.id}`} 
                                   className="lista-postu-link" 
                                   target="_blank" 
                                   rel="noopener noreferrer">

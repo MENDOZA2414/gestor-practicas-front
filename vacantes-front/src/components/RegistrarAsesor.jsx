@@ -96,7 +96,7 @@ const RegistrarAsesor = () => {
 
     const verificarCorreoDuplicado = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3001/checkDuplicateEmail', { correo });
+            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicateEmail', { correo });
             return data.exists;
         } catch (err) {
             Swal.fire({
@@ -112,7 +112,7 @@ const RegistrarAsesor = () => {
 
     const verificarCelularDuplicado = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3001/checkDuplicatePhone', { numCelular });
+            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicatePhone', { numCelular });
             return data.exists;
         } catch (err) {
             Swal.fire({
@@ -197,7 +197,7 @@ const RegistrarAsesor = () => {
             formData.append('numCelular', numCelular);
             formData.append('fotoPerfil', fotoPerfil);
 
-            const { data } = await axios.post(`http://localhost:3001/register/asesorInterno`, formData, {
+            const { data } = await axios.post(`https://gestor-practicas-back-production.up.railway.app/register/asesorInterno`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

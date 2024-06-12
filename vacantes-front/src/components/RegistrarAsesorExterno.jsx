@@ -104,7 +104,7 @@ const RegistrarAsesorExterno = () => {
 
     const verificarCorreoDuplicado = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3001/checkDuplicateEmail', { correo });
+            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicateEmail', { correo });
             return data.exists;
         } catch (err) {
             Swal.fire({
@@ -120,7 +120,7 @@ const RegistrarAsesorExterno = () => {
 
     const verificarCelularDuplicado = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3001/checkDuplicatePhone', { numCelular });
+            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicatePhone', { numCelular });
             return data.exists;
         } catch (err) {
             Swal.fire({
@@ -206,7 +206,7 @@ const RegistrarAsesorExterno = () => {
             formData.append('entidadID', entidadID); // Se incluye el ID de la entidad obtenida
             formData.append('fotoPerfil', fotoPerfil);
 
-            const { data } = await axios.post(`http://localhost:3001/register/asesorExterno`, formData, {
+            const { data } = await axios.post(`https://gestor-practicas-back-production.up.railway.app/register/asesorExterno`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

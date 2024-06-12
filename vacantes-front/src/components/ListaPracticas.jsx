@@ -11,7 +11,7 @@ const ListaPracticas = ({ entidadID }) => {
     useEffect(() => {
         const fetchPracticas = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/practicas/${entidadID}`);
+                const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/practicas/${entidadID}`);
                 setPracticas(response.data);
             } catch (error) {
                 setError('Error fetching practicas: ' + error.message);

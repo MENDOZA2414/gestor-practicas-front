@@ -12,7 +12,7 @@ const PracticaProfesionalAlu = ({ alumnoID }) => {
     useEffect(() => {
         const fetchPractica = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/practica/alumno/${alumnoID}`);
+                const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/practica/alumno/${alumnoID}`);
                 setPractica(response.data);
             } catch (error) {
                 setError('Error fetching practica profesional: ' + error.message);

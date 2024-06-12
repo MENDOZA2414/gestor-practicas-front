@@ -32,7 +32,7 @@ const PerfilEntidadReceptora = ({ user, setUser }) => {
                     throw new Error('No se encontró el ID de la entidad logueada');
                 }
 
-                const response = await axios.get(`http://localhost:3001/entidadReceptora/${entidadId}`);
+                const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/entidadReceptora/${entidadId}`);
                 const entidadData = response.data;
                 entidadData.foto = entidadData.fotoPerfil ? `data:image/jpeg;base64,${entidadData.fotoPerfil}` : defaultImage;
 
@@ -165,7 +165,7 @@ const PerfilEntidadReceptora = ({ user, setUser }) => {
                 formData.append('foto', formValues.fotoFile);
             }
 
-            await axios.put(`http://localhost:3001/entidadReceptora/${formValues.entidadID}`, formData, {
+            await axios.put(`https://gestor-practicas-back-production.up.railway.app/entidadReceptora/${formValues.entidadID}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -210,7 +210,7 @@ const PerfilEntidadReceptora = ({ user, setUser }) => {
 
     const verificarCorreoDuplicado = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3001/checkDuplicateEmailExceptCurrent', {
+            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicateEmailExceptCurrent', {
                 correo: formValues.correo,
                 id: formValues.entidadID,
                 userType: 'entidadReceptora'
@@ -230,7 +230,7 @@ const PerfilEntidadReceptora = ({ user, setUser }) => {
 
     const verificarCelularDuplicado = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3001/checkDuplicatePhoneExceptCurrent', {
+            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicatePhoneExceptCurrent', {
                 numCelular: formValues.numCelular,
                 id: formValues.entidadID,
                 userType: 'entidadReceptora'

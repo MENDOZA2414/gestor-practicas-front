@@ -22,7 +22,7 @@ const InicioAsesorInterno = ({ user, logOut }) => {
       try {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser) {
-          const response = await axios.get(`http://localhost:3001/asesorInterno/${storedUser.id}`);
+          const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/asesorInterno/${storedUser.id}`);
           const userData = response.data;
           userData.foto = userData.fotoPerfil ? `data:image/jpeg;base64,${userData.fotoPerfil}` : 'ruta/a/imagen/predeterminada.png';
           setCurrentUser({

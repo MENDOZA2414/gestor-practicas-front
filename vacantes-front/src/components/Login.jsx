@@ -48,7 +48,7 @@ const Login = ({ setUser }) => {
           throw new Error('Tipo de usuario no válido');
       }
 
-      const { data } = await axios.post(`http://localhost:3001/${endpoint}`, { email, password });
+      const { data } = await axios.post(`https://gestor-practicas-back-production.up.railway.app/${endpoint}`, { email, password });
 
       const userName = data.nombre || data.nombreUsuario || data.nombreEntidad;
 

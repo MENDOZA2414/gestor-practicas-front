@@ -166,7 +166,7 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
       if (response.status === 200) {
         const data = response.data.map(postulacion => ({
           ...postulacion,
-          cartaPresentacion: `http://localhost:3001/documento/${postulacion.cartaPresentacion}`,
+          cartaPresentacion: `https://gestor-practicas-back-production.up.railway.app/documento/${postulacion.cartaPresentacion}`,
           id: postulacion.postulacionID // Agrega esta línea
         }));
         console.log(data); // Verificar datos aquí

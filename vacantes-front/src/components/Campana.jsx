@@ -9,7 +9,7 @@ const Campana = ({ userType }) => {
   useEffect(() => {
     const checkForChanges = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/checkDbChanges');
+        const response = await axios.get('https://gestor-practicas-back-production.up.railway.app/checkDbChanges');
         const { hasChanges, changeTypes } = response.data;
 
         // Mostrar la notificación si hay cambios y el tipo de usuario es diferente al actual
