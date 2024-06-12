@@ -1,0 +1,161 @@
+.perfil-card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+.perfil-foto-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.perfil-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.perfil-info {
+    text-align: center;
+    width: 100%;
+}
+
+.perfil-info h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.perfil-info-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ajuste para centrar los elementos dentro de la columna */
+}
+
+.perfil-info-grid div {
+    margin-bottom: 10px;
+}
+
+.perfil-info-grid p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.perfil-info-grid p strong {
+    font-weight: bold;
+    display: block;
+}
+
+.perfil-info button, .perfil-card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.perfil-card input[type="text"], 
+.perfil-card input[type="email"], 
+.perfil-card input[type="date"], 
+.perfil-card input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.perfil-card input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    height: 50px; 
+}
+
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+
+}
+
+.perfil-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.perfil-buttons button {
+    flex: 1;
+}
+
+.perfil-buttons .cancel-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.perfil-buttons .cancel-button:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 767px) {
+    .perfil-buttons {
+        flex-direction: column;
+    }
+
+    .perfil-card input[type="file"] {
+        width: 100%; /* Ajuste para dispositivos móviles */
+    }
+
+    .perfil-buttons button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .perfil-card {
+        max-width: 600px;
+    }
+
+    .perfil-info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .perfil-info-grid .perfil-celular {
+        grid-column: span 2;
+        text-align: center;
+    }
+
+    .perfil-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .perfil-form input[type="file"] {
+        grid-column: span 2;
+    }
+
+    .perfil-buttons {
+        grid-column: span 2;
+    }
+}

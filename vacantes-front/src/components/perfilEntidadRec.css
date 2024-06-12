@@ -1,0 +1,138 @@
+.perfil-entidad-rec-card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    text-align: center;
+}
+
+.perfil-entidad-rec-foto-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.perfil-entidad-rec-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.perfil-entidad-rec-info {
+    text-align: center;
+    width: 100%;
+}
+
+.perfil-entidad-rec-info h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.perfil-entidad-rec-info-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ajuste para centrar los elementos dentro de la columna */
+    margin-bottom: 15px; /* Añadir espacio entre las secciones */
+}
+
+.perfil-entidad-rec-info-grid div {
+    margin-bottom: 10px; /* Ajustar este valor para añadir más espacio entre los divs */
+}
+
+.perfil-entidad-rec-info-grid p {
+    margin: 0;
+    font-size: 1em;
+    margin-bottom: 5px; /* Ajusta este valor según el espacio que desees entre los párrafos */
+    word-wrap: break-word; /* Permite que las palabras largas se dividan en líneas nuevas */
+    white-space: pre-wrap; /* Mantiene los espacios en blanco y permite el salto de línea */
+}
+
+.perfil-entidad-rec-info-grid p strong {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px; /* Ajusta este valor según el espacio que desees entre las etiquetas strong */
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+
+}
+
+.perfil-entidad-rec-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.perfil-entidad-rec-buttons button {
+    flex: 1;
+}
+
+.perfil-entidad-rec-buttons .cancel-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.perfil-entidad-rec-buttons .cancel-button:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 767px) {
+    .perfil-entidad-rec-buttons {
+        flex-direction: column;
+    }
+
+    .perfil-entidad-rec-card input[type="file"] {
+        width: 100%; /* Ajuste para dispositivos móviles */
+    }
+
+    .perfil-entidad-rec-buttons button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .perfil-entidad-rec-card {
+        max-width: 600px;
+    }
+
+    .perfil-entidad-rec-info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .perfil-entidad-rec-info-grid .perfil-entidad-rec-celular {
+        grid-column: span 2;
+        text-align: center;
+    }
+
+    .perfil-entidad-rec-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .perfil-entidad-rec-form input[type="file"] {
+        grid-column: span 2;
+    }
+
+    .perfil-entidad-rec-buttons {
+        grid-column: span 2;
+    }
+}

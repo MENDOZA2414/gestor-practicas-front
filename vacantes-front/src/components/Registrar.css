@@ -1,0 +1,26 @@
+.categoria-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: -30px;
+    z-index: 10;
+}
+
+.titulo-ingresar-datos {
+    font-size: 30px; /* Aumenta el tamaño del texto */
+    margin-bottom: 20px; /* Aumenta la separación con el icono */
+}
+
+.icono-usuario {
+    margin-top: 20px; /* Aumenta la separación con el texto */
+}

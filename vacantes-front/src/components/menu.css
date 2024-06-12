@@ -1,0 +1,201 @@
+/* InicioAlumno.css */
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s;
+  display: flex;
+  flex-direction: column;
+  z-index: 1100; /* Asegura que se quede encima de otros elementos */
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sidebar-header .logo {
+  width: 140px;
+  height: 47px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  margin-left: 7px;
+}
+
+.sidebar.collapsed .sidebar-header .logo {
+  width: 38px;
+  height: 36px;
+}
+
+.sidebar-header .menu-icon {
+  cursor: pointer;
+  font-size: 2.7em;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 2.7em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  flex-grow: 1;
+}
+
+.menu-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.menu-list li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  width: 33ch;
+  padding: 10px;
+  border-radius: 15px;
+  transition: background 0.3s;
+}
+
+.menu-list li a:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.menu-list li .icon {
+  font-size: 1.5em;
+}
+
+.menu-list li .menu-text {
+  margin-left: 10px;
+  transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .menu-text {
+  opacity: 0;
+}
+
+.sidebar.collapsed ~ .header {
+  width: calc(100% - 80px);
+  margin-left: 80px;
+  height: 100px; /* Asegúrate de que la altura del encabezado se mantenga igual */
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.content.collapsed {
+  margin-left: 80px;
+}
+
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.sidebar-footer a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  width: 33ch;
+  padding: 10px;
+  border-radius: 15px;
+  transition: background 0.3s;
+  margin-bottom: 15px;
+}
+
+.sidebar-footer a:hover {
+  background: #e0e0e0;
+  color: #d20e0e;
+}
+
+.sidebar-footer .icon {
+  font-size: 1.5em;
+}
+
+.sidebar-footer .menu-text {
+  margin-left: 10px;
+  white-space: nowrap;
+  transition: opacity 0.3s;
+}
+/* menu.css */
+.menu-list li a.active {
+  color: #1B125C;
+  background: #f0f0f0;
+}
+
+.menu-list li a.active .icon {
+  color: #1B125C;
+}
+
+.tooltip {
+  position: absolute;
+  left: 50px;
+  transform: translateX(10px);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .header-principal {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .sidebar.collapsed {
+    display: flex;
+    width: 80px;
+    position: fixed; /* Asegura que el menú colapsado se quede fijo */
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1100; /* Asegura que el menú colapsado esté por encima del contenido */
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 0; /* Restablece el margen izquierdo a 0 */
+  }
+
+  .content.collapsed {
+    width: calc(100% - 80px); /* Ajusta el ancho del contenido */
+    margin-left: 80px; /* Ajusta el margen izquierdo para el menú colapsado */
+  }
+}
+

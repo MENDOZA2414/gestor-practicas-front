@@ -1,0 +1,195 @@
+.vacantes {
+    padding: 20px;
+}
+
+.vacante-info-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.vacante-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 100%; /* Hacer que el contenedor ocupe toda la altura */
+}
+
+.vacante-card {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word; /* Para que el texto no se salga del card */
+    border: 1px solid #ddd;
+}
+
+.vacante-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.company-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.apply-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Ajustar el tamaño del botón */
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.apply-button:hover {
+    background-color: #0056b3;
+}
+
+.vacante-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1100; 
+}
+
+.vacante-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 90%;
+    width: 400px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.vacancy-details {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.upload-button-vacantes {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.upload-button .pdf-icon {
+    font-size: 1.2em;
+}
+
+.confirm-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confirm-button:disabled {
+    background-color: #ccc;
+}
+.apply-button.applied {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  .apply-button.applied:hover {
+    background-color: gray;
+  }
+  
+@media (max-width: 768px) {
+    .vacante-card {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .vacante-info-horizontal {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    }
+
+    .vacante-footer {
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .vacante-card-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        text-align: center; /* Asegura que el texto también esté centrado */
+    }
+    
+    .vacante-card-header img {
+        margin-bottom: 10px; /* Espacio entre el logo y el texto */
+        display: block; /* Asegura que la imagen sea un bloque */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    
+    .vacante-card-header h2,
+    .vacante-card-header h3 {
+        text-align: center;
+        white-space: normal; /* Permite que el texto se divida en varias líneas */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .apply-button {
+        padding: 10px 20px; /* Ajustar el tamaño del botón */
+    }
+}
+
+@media (min-width: 769px) {
+    .vacante-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .vacante-footer {
+        align-self: center; /* Centrar verticalmente */
+    }
+}

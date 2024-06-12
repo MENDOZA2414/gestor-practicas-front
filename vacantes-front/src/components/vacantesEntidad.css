@@ -1,0 +1,73 @@
+.vacantes-enti {
+    padding: 20px;
+}
+
+.vacantes-enti-list {
+    max-height: 400px; /* Ajustar según sea necesario */
+    overflow-y: auto; /* Agrega scroll vertical si es necesario */
+}
+
+.vacantes-enti-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.vacantes-enti-item:last-child {
+    border-bottom: none; /* Eliminar borde del último elemento */
+}
+.vacantes-enti-item-title {
+    font-size: 1.5em; /* Aumenta el tamaño de la fuente */
+    font-weight: medium; /* Hace el texto negrita */
+}
+
+.icon-button {
+    background: none; /* Asegura que no haya fondo por defecto */
+    border: none;
+    cursor: pointer;
+    color: #0077ff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding: 5px; /* Ajustar el padding si es necesario */
+}
+
+.icon-button:hover {
+    color: #005bb5;
+    background: none; /* Asegúrate de que no haya fondo en el hover */
+    outline: none; /* Elimina el borde que puede aparecer al hacer clic */
+}
+
+
+.vacantes-enti-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+}
+
+.vacantes-enti-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 90%;
+    width: 400px;
+}
+
+.vacantes-enti-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+}

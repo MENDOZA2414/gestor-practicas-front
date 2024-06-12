@@ -1,0 +1,120 @@
+.lista-postu-table-container {
+    width: 100%;
+    max-height: 400px; /* Ajusta el tamaño máximo según tus necesidades */
+    overflow-y: auto;
+    border: 1px solid #ddd; /* Añadir borde para el contenedor */
+    border-radius: 5px; /* Añadir bordes redondeados */
+}
+
+.lista-postu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.lista-postu-table th, 
+.lista-postu-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-break: break-word; /* Forzar el salto de línea en palabras largas */
+}
+
+.lista-postu-table th {
+    background-color: #f2f2f2;
+}
+
+.lista-postu-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.lista-postu-button {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-right: 5px;
+    font-size: 1.0rem;
+    background: none;
+    padding: 0; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; 
+    height: 35px; 
+    transition: background-color 0.3s; 
+}
+
+.lista-postu-button.approve {
+    color: green;
+}
+
+.lista-postu-button.reject {
+    color: red;
+}
+
+.lista-postu-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #FF0000; /* Color característico del icono PDF */
+}
+
+.lista-postu-link {
+    display: flex;
+    justify-content: center; /* Alinear a la izquierda */
+    align-items: center;
+    height: 100%; /* Asegura que el enlace ocupe toda la altura de la celda */
+    margin-right: 40px;
+}
+
+.lista-postu-button:hover {
+    background-color: #ddd; /* Cambiar el color de fondo al pasar el cursor */
+}
+
+@media (max-width: 600px) {
+    .lista-postu-table thead {
+        display: none;
+    }
+
+    .lista-postu-table, 
+    .lista-postu-table tbody, 
+    .lista-postu-table tr, 
+    .lista-postu-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .lista-postu-table tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .lista-postu-table td {
+        text-align: left; /* Cambiado a 'left' */
+        padding-left: 10px; /* Añadir margen izquierdo */
+        position: relative;
+    }
+
+    .lista-postu-table td::before {
+        content: attr(data-label);
+        position: relative; /* Cambiado a 'relative' */
+        left: 0;
+        width: 100%; /* Cambiado a '100%' */
+        font-weight: bold;
+        text-align: left;
+        white-space: nowrap; /* Para evitar el salto de línea en los títulos */
+        margin-right: 10px; /* Agregar margen derecho */
+        display: inline-block; /* Asegurar que el espacio se aplique correctamente */
+    }
+
+    .lista-postu-table td:last-child {
+        border-bottom: 0;
+    }
+    
+    .lista-postu-link {
+        display: flex;
+        justify-content: flex-start; /* Alinear a la izquierda */
+        align-items: center;
+        height: 100%; /* Asegura que el enlace ocupe toda la altura de la celda */
+        margin-right: 0px;
+    }
+}

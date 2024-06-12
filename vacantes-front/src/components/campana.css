@@ -1,0 +1,53 @@
+/* campana.css */
+.campana-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px; /* Añade un margen a la derecha para separarlo de la imagen de perfil */
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.campana-icon {
+    font-size: 1.5em;
+    color: #555;
+}
+
+.campana-notification {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: notification-pulse 1s infinite;
+}
+
+.campana-notification-icon {
+    font-size: 12px; /* Ajusta el tamaño del ícono de exclamación */
+    color: white; /* Color del ícono de exclamación */
+}
+
+
+.campana-container:hover {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+}
+
+@keyframes notification-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

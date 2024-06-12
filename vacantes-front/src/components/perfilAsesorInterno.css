@@ -1,0 +1,168 @@
+.perfil-asesorInt-card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    text-align: center; /* Asegura que el texto dentro de la tarjeta esté centrado */
+
+}
+
+.perfil-asesorInt-foto-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.perfil-asesorInt-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.perfil-asesorInt-info {
+    text-align: center;
+    width: 100%;
+}
+
+.perfil-asesorInt-info h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.perfil-asesorInt-info-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ajuste para centrar los elementos dentro de la columna */
+}
+
+.perfil-asesorInt-info-grid div {
+    margin-bottom: 10px;
+}
+
+.perfil-asesorInt-info-grid p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.perfil-asesorInt-info-grid p strong {
+    font-weight: bold;
+    display: block;
+}
+
+.perfil-asesorInt-info button, .perfil-asesorInt-card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.perfil-asesorInt-card input[type="text"], 
+.perfil-asesorInt-card input[type="email"], 
+.perfil-asesorInt-card input[type="date"], 
+.perfil-asesorInt-card input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.perfil-asesorInt-card input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    height: 50px; 
+}
+
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+
+}
+
+.perfil-asesorInt-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.perfil-asesorInt-buttons button {
+    flex: 1;
+}
+
+.perfil-asesorInt-buttons .cancel-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.perfil-asesorInt-buttons .cancel-button:hover {
+    background-color: #c82333;
+}
+.perfil-asesorInt-info-grid .perfil-asesorInt-celular,
+.perfil-asesorInt-info-grid .perfil-asesorInt-correo {
+    grid-column: span 2;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .perfil-asesorInt-buttons {
+        flex-direction: column;
+    }
+
+    .perfil-asesorInt-card input[type="file"] {
+        width: 100%; /* Ajuste para dispositivos móviles */
+    }
+
+    .perfil-asesorInt-buttons button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .perfil-asesorInt-card {
+        max-width: 600px;
+    }
+
+    .perfil-asesorInt-info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .perfil-asesorInt-info-grid .perfil-asesorInt-celular {
+        grid-column: span 2;
+        text-align: center;
+    }
+
+    .perfil-asesorInt-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .perfil-asesorInt-form input[type="file"] {
+        grid-column: span 2;
+    }
+
+    .perfil-asesorInt-buttons {
+        grid-column: span 2;
+    }
+}

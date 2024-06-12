@@ -1,0 +1,127 @@
+.mt-5 {
+    margin-top: 2rem;
+}
+
+.highlight {
+    color: #2724B3;
+}
+
+.description {
+    font-size: 1.25rem;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 50%;
+    padding: 1rem;
+}
+
+.custom-card {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+.card-title-principal {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.highlight-section {
+    padding: 2rem;
+    margin-bottom: 0;
+    color: #ffffff;
+    background-color: #1b1d2d;
+}
+
+.highlight-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.highlight-content h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.highlight-content p {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 15px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1rem;
+    border: 3px solid #ffffff;
+}
+
+.button:hover {
+    background-color: #0011ff;
+    color: #fff;
+    border: 3px solid #0011ff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card-wrapper {
+        flex: 1 1 100%;
+        padding: 1rem;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f8f8fa;
+    margin-top: 0;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+    color: #4b5157;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.social-icons a:hover {
+    color: #1988ff;
+}

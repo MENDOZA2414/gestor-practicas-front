@@ -1,0 +1,131 @@
+.asesor-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .asesor-card {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+  }
+  
+  .asesor-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .asesor-info {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .asesor-info h1 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .asesor-info h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
+  
+  .asesor-info-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .asesor-info-grid div {
+    margin-bottom: 10px;
+  }
+  
+  .asesor-info-grid p {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .asesor-info-grid p strong {
+    font-weight: bold;
+    display: block;
+  }
+  
+  .contact-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-button:hover {
+    background-color: #0056b3;
+  }
+
+  .practica-no-registrada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Cambiado a center para centrar el texto */
+    font-size: 15px; /* Tamaño del texto */
+    padding-top: 110px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    max-width: 500px;
+    width: 100%;
+   
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  
+  
+  .practica-no-registrada h1 {
+    font-size: 24px; /* Tamaño del título */
+  
+  }
+  
+  .practica-no-registrada p {
+    font-size: 18px; /* Tamaño del texto */
+  }
+  
+  @media (min-width: 768px) {
+    .asesor-container {
+      justify-content: space-around;
+    }
+  
+    .asesor-info-grid {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .asesor-info-grid div {
+      width: 45%;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .asesor-info-grid p {
+      word-wrap: break-word; /* This will break the word if it's too long */
+    }
+  }
+  
