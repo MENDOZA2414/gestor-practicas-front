@@ -10,12 +10,12 @@ const Avance = () => {
     useEffect(() => {
         const fetchAcceptedDocuments = async () => {
             const storedUser = JSON.parse(localStorage.getItem('user'));
-            if (!storedUser || !storedUser.numControl) {
+            if (!storedUser || !storedUser.alumnoID) {
                 return;
             }
 
             try {
-                const response = await axios.get(`/countAcceptedDocuments/${storedUser.numControl}`);
+                const response = await axios.get(`/countAcceptedDocuments/${storedUser.alumnoID}`);
                 const acceptedCount = response.data.acceptedCount || 0;
 
                 // La barra de avance tiene 3 estados
@@ -64,7 +64,7 @@ const Avance = () => {
         <div className="avance-container">
             <h2 className='h2-avance'>Barra de Avance</h2>
             <div className="progress-container-avance">
-                <div className="progress-bar" style={{ width: `${(estado + 1) * (100 / estados.length)}%` }}></div>
+                <div className="progress-bar" style={{ width: `${(estado / estados.length) * 100}%` }}></div>
             </div>
             <div className="estado">
                 <h3>{estados[estado].titulo}</h3>
