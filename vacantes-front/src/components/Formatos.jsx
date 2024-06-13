@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FaEye, FaDownload } from 'react-icons/fa';
+import { FaEye, FaDownload, FaArrowLeft } from 'react-icons/fa';
 import './formatos.css';
 
 const Formatos = () => {
@@ -66,6 +66,11 @@ const Formatos = () => {
 
     return (
         <div className="main-container">
+            <h1 className="main-title">Obtén tus formatos para tus prácticas</h1>
+            <div className="side-note">
+                <FaArrowLeft className="side-note-icon" />
+                <span>Selecciona una de las opciones del menú lateral.</span>
+            </div>
             <div className="formatos-card">
                 <h3>Formatos</h3>
                 {error ? (

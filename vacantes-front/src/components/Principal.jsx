@@ -53,10 +53,10 @@ const Principal = () => {
             <footer className="footer">
                 <p>2024 © Universidad Autónoma de Baja California Sur</p>
                 <div className="social-icons">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/uabcsdsc?locale=es_LA" target="_blank" rel="noopener noreferrer">
                         <FaFacebook />
                     </a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/dasc_uabcs?igsh=ZjEwbmg5ZWRyMDlt" target="_blank" rel="noopener noreferrer">
                         <FaInstagram />
                     </a>
                 </div>

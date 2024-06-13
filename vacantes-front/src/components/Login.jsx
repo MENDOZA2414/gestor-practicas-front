@@ -121,8 +121,6 @@ const Login = ({ setUser }) => {
                 <option value="entidad">Entidad Receptora</option>
                 <option value="alumno">Alumno</option>
                 <option value="asesorInterno">Asesor Interno</option>
-                <option value="asesorExterno">Asesor Externo</option>
-                <option value="administrador">Administrador</option>
               </select>
             </div>
             <div className="mb-3">
