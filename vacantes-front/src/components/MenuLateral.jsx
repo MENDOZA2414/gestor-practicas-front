@@ -41,7 +41,7 @@ const MenuLateral = ({ userType, logOut, collapsed, toggleSidebar }) => {
       <div className="sidebar-header">
         <Link to={menuOptions[userType][0].path}>
           <img
-            src={collapsed ? "https://ibb.co/ZzFQTBg" : "https://ibb.co/qd0cxMCg"}
+            src={collapsed ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxLK5sk12PfgCRwZzjgFkXp6W17hPwyLXGNQ&s" : "https://www.uabcs.mx/dasc/wp-content/uploads/2022/08/cropped-logo-dasc.png"}
             className="logo"
             alt="Logo"
           />
