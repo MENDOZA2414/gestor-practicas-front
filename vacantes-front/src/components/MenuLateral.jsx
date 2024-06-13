@@ -21,21 +21,18 @@ const MenuLateral = ({ userType, logOut, collapsed, toggleSidebar }) => {
       { path: '/inicioEntidad/registrarVacantes', icon: FaBuilding, label: 'Vacantes' },
       { path: '/inicioEntidad/listaPracticas', icon: FaFileAlt, label: 'Practicas' },
       { path: '/inicioEntidad/registrar-asesor', icon: FaChalkboardTeacher, label: 'Asesor' },
-      { path: '/inicioEntidad/reportes', icon: FaChartLine, label: 'Reportes' }
     ],
     asesorInterno: [
       { path: '/inicioAsesorInterno', icon: FaHome, label: 'Inicio' },
       { path: '/inicioAsesorInterno/perfil', icon: FaUser, label: 'Perfil' },
       { path: '/inicioAsesorInterno/administrar', icon: FaBuilding, label: 'Administrar' },
       { path: '/inicioAsesorInterno/documentos', icon: FaFileAlt, label: 'Documentos' },
-      { path: '/inicioAsesorInterno/reportes', icon: FaChartLine, label: 'Reportes' }
     ],
     asesorExterno: [
       { path: '/inicioAsesorExterno', icon: FaHome, label: 'Inicio' },
       { path: '/inicioAsesorExterno/perfil', icon: FaUser, label: 'Perfil' },
       { path: '/inicioAsesorExterno/vacantes', icon: FaBuilding, label: 'Vacantes' },
       { path: '/inicioAsesorExterno/documentos', icon: FaFileAlt, label: 'Documentos' },
-      { path: '/inicioAsesorExterno/reportes', icon: FaChartLine, label: 'Reportes' }
     ]
   };
 
@@ -44,7 +41,7 @@ const MenuLateral = ({ userType, logOut, collapsed, toggleSidebar }) => {
       <div className="sidebar-header">
         <Link to={menuOptions[userType][0].path}>
           <img
-            src={collapsed ? "./../public/dasc_icon.png" : "./../public/dasc.png"}
+            src={collapsed ? "https://ibb.co/ZzFQTBg" : "https://ibb.co/qd0cxMCg"}
             className="logo"
             alt="Logo"
           />
