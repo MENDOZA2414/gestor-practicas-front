@@ -64,11 +64,11 @@ const Avance = () => {
         <div className="avance-container">
             <h2 className='h2-avance'>Barra de Avance</h2>
             <div className="progress-container-avance">
-                <div className="progress-bar" style={{ width: `${(estado / estados.length) * 100}%` }}></div>
+                <div className="progress-bar" style={{ width: `${(estado / 3) * 100}%` }}></div>
             </div>
             <div className="estado">
-                <h3>{estados[estado].titulo}</h3>
-                <p>{estados[estado].descripcion}</p>
+                <h3>{estado === 3 ? 'Practica Finalizada' : estados[estado].titulo}</h3>
+                <p>{estado === 3 ? 'Felicidades, has completado todas las tareas.' : estados[estado].descripcion}</p>
             </div>
             <button onClick={handleContinue} className='button-avance'>Ir a documentos</button>
         </div>
