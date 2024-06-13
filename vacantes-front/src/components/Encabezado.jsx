@@ -37,7 +37,7 @@ const Encabezado = ({ user, logOut }) => {
                   <Link to="#" className="nav-link" onClick={handleCloseOffcanvas}>Estudiantes</Link>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link" onClick={handleCloseOffcanvas}>google</a>
+                  <a href="#" className="nav-link" onClick={handleCloseOffcanvas}>Empresas</a>
                 </li>
                 <li className="nav-item">
                   <a href="#" className="nav-link" onClick={handleCloseOffcanvas}>DASC</a>
