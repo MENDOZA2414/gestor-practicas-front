@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { FaEnvelope } from 'react-icons/fa';
+import { FaEnvelope, FaChartLine } from 'react-icons/fa'; // Importar FaChartLine
 import Avance from './Avance';
 import './practicaProfesional.css';
 
@@ -31,8 +31,13 @@ const PracticaProfesionalAlu = ({ alumnoID }) => {
         window.open(mailtoLink, '_blank');
     };
 
-    if (error) {
-        return <p>{error}</p>;
+    if (error.includes('404')) {
+        return (
+            <div className="no-practica">
+                <p>Aún no estás registrado/a en alguna práctica profesional</p>
+                <FaChartLine className="no-practica-icon" />
+            </div>
+        );
     }
 
     if (!practica) {
@@ -75,7 +80,6 @@ const PracticaProfesionalAlu = ({ alumnoID }) => {
                             <td data-label="Contacto Entidad">{practica.numCelularEntidad}</td>
                         </tr>
                     </tbody>
-
                 </table>
             </div>
             <Avance />

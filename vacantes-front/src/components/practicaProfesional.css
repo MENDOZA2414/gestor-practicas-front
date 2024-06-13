@@ -96,3 +96,24 @@
         text-align: left;
     }
 }
+
+/* Estilos para el mensaje cuando no hay práctica profesional registrada */
+.no-practica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Ajusta la altura del contenedor */
+    text-align: center;
+}
+
+.no-practica p {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.no-practica-icon {
+    font-size: 13em;
+    color: #e4e4e4;
+}

@@ -151,7 +151,7 @@ const Vacantes = () => {
 
   return (
     <div className="vacantes">
-      <h1>Vacantes Disponibles</h1>
+      <h1>{vacantes.length > 0 ? 'Vacantes Disponibles' : 'No hay vacantes disponibles aún'}</h1>
       {sortedVacantes.map((vacante, index) => (
         <div key={index} className="vacante-card">
           <div style={{ flex: '70%' }}>
