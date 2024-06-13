@@ -5,10 +5,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: process.env.PORT || 3000,
-    host: '0.0.0.0', // Esto asegura que el servidor escuche en todas las interfaces de red
+    host: true
   },
   preview: {
     port: process.env.PORT || 3000,
-    host: '0.0.0.0', // Esto asegura que el servidor escuche en todas las interfaces de red
-  },
+    host: true
+  }
 });
