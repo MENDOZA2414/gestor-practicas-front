@@ -7,26 +7,28 @@ const Avance = () => {
     const [estado, setEstado] = useState(0);
     const [mostrarModal, setMostrarModal] = useState(false);
     const navigate = useNavigate();
-    const numControl = '2019084645'; // Obtén esto desde el estado de tu aplicación o la sesión del usuario
 
     useEffect(() => {
         const fetchAcceptedDocuments = async () => {
-            try {
-                const response = await axios.get(`/countAcceptedDocuments/${numControl}`);
-                const acceptedCount = response.data.acceptedCount;
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (!storedUser || !storedUser.numControl) {
+                return;
+            }
 
-                if (acceptedCount >= 3) {
-                    setEstado(3); // Configura el estado según la lógica que necesites
-                } else {
-                    setEstado(acceptedCount); // Configura el estado según la cantidad de documentos aceptados
+            try {
+                const response = await axios.get(`/countAcceptedDocuments/${storedUser.numControl}`);
+                const acceptedDocuments = response.data.acceptedDocuments;
+
+                if (acceptedDocuments >= 3) {
+                    setEstado(acceptedDocuments); // Actualiza el estado de la barra de avance según el número de documentos aceptados
                 }
             } catch (error) {
-                console.error('Error al obtener los documentos aceptados:', error);
+                console.error('Error al contar los documentos aceptados:', error);
             }
         };
 
         fetchAcceptedDocuments();
-    }, [numControl]);
+    }, []);
 
     const estados = [
         {
