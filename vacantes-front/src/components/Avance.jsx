@@ -5,7 +5,6 @@ import axios from 'axios';
 
 const Avance = () => {
     const [estado, setEstado] = useState(0);
-    const [mostrarModal, setMostrarModal] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,11 +16,15 @@ const Avance = () => {
 
             try {
                 const response = await axios.get(`/countAcceptedDocuments/${storedUser.numControl}`);
-                const acceptedDocuments = response.data.acceptedDocuments;
+                const acceptedCount = response.data.acceptedCount || 0;
 
-                if (acceptedDocuments >= 3) {
-                    setEstado(acceptedDocuments); // Actualiza el estado de la barra de avance según el número de documentos aceptados
-                }
+                // La barra de avance tiene 3 estados
+                const maxEstados = 3;
+
+                // Calcula el estado basado en el número de documentos aceptados
+                const nuevoEstado = Math.min(acceptedCount, maxEstados);
+
+                setEstado(nuevoEstado); // Actualiza el estado de la barra de avance según el número de documentos aceptados
             } catch (error) {
                 console.error('Error al contar los documentos aceptados:', error);
             }
@@ -36,16 +39,16 @@ const Avance = () => {
             descripcion: 'Este es el punto de partida. Aquí se proporciona una visión general del proceso.',
         },
         {
-            titulo: 'Primera Tarea',
-            descripcion: 'En este estado, deberás completar la primera tarea asignada.',
+            titulo: 'Primer Documento Aceptado',
+            descripcion: 'Has completado y aceptado el primer documento.',
         },
         {
-            titulo: 'Segunda Tarea',
-            descripcion: 'Aquí trabajas en la segunda tarea. Sigue las instrucciones proporcionadas.',
+            titulo: 'Segundo Documento Aceptado',
+            descripcion: 'Has completado y aceptado el segundo documento.',
         },
         {
-            titulo: 'Revisión',
-            descripcion: 'En este estado, se revisan las tareas completadas antes de continuar.',
+            titulo: 'Tercer Documento Aceptado',
+            descripcion: 'Has completado y aceptado el tercer documento.',
         },
         {
             titulo: 'Finalización',
@@ -53,19 +56,7 @@ const Avance = () => {
         },
     ];
 
-    const avanzarEstado = () => {
-        if (estado < estados.length - 1) {
-            setEstado(estado + 1);
-            setMostrarModal(true);
-        }
-    };
-
-    const handleCloseModal = () => {
-        setMostrarModal(false);
-    };
-
     const handleContinue = () => {
-        setMostrarModal(false);
         navigate('/inicioAlumno/documentos');
     };
 
@@ -73,26 +64,13 @@ const Avance = () => {
         <div className="avance-container">
             <h2 className='h2-avance'>Barra de Avance</h2>
             <div className="progress-container-avance">
-                <div className="progress-bar" style={{ width: `${(estado + 1) * 20}%` }}></div>
+                <div className="progress-bar" style={{ width: `${(estado + 1) * (100 / estados.length)}%` }}></div>
             </div>
             <div className="estado">
                 <h3>{estados[estado].titulo}</h3>
                 <p>{estados[estado].descripcion}</p>
             </div>
-            <button onClick={avanzarEstado} disabled={estado >= estados.length - 1} className='button-avance'>Ir al siguiente paso</button>
-
-            {mostrarModal && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
-                        <span className="close-button" onClick={handleCloseModal}>&times;</span>
-                        <h2>Pasos a seguir</h2>
-                        <p>A continuación, se te redirigirá a la página de documentos. Por favor, asegúrate de haber completado todas las tareas requeridas antes de continuar.</p>
-                        <div className="modal-buttons">
-                            <button className="modal-button-continue" onClick={handleContinue}>Continuar</button>
-                        </div>
-                    </div>
-                </div>
-            )}
+            <button onClick={handleContinue} className='button-avance'>Ir a documentos</button>
         </div>
     );
 };
