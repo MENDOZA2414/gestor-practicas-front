@@ -6,7 +6,6 @@ import Error from './common/Error';
 import md5 from 'md5';
 import Titulo from './common/Titulo';
 import { FaUser } from 'react-icons/fa';
-const apiUrl = 'https://gestor-practicas-back-production.up.railway.app';
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
@@ -49,7 +48,7 @@ const Login = ({ setUser }) => {
           throw new Error('Tipo de usuario no válido');
       }
 
-      const { data } = await axios.post(`${apiUrl}/${endpoint}`, { email, password });
+      const { data } = await axios.post(`https://gestor-practicas-back-production.up.railway.app/${endpoint}`, { email, password });
 
       const userName = data.nombre || data.nombreUsuario || data.nombreEntidad;
 
