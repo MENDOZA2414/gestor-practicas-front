@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import logo from '../../public/dasc.png';
 const Encabezado = ({ user, logOut }) => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary">
         <div className="container-fluid px-5">
           <Link to="/" className="navbar-brand mx-auto mx-lg-0 d-flex align-items-center">
-            <img src={process.env.PUBLIC_URL + "/dasc.png"} className="bi me-5" width="150" height="52" alt="Logo" />
+            <img src= {logo} className="bi me-5" width="150" height="52" alt="Logo" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span className="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@ const Encabezado = ({ user, logOut }) => {
                   <Link to="#" className="nav-link">Estudiantes</Link>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link">Empresas</a>
+                  <a href="#" className="nav-link">google</a>
                 </li>
                 <li className="nav-item">
                   <a href="#" className="nav-link">DASC</a>
