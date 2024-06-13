@@ -6,13 +6,14 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import './vacantesEntidad.css';
 
-const ListaVacantes = ({ vacantes, setVacantes, setVacante, setIsModalOpen, setSelectedPostulaciones, fetchPostulaciones }) => {
+const ListaVacantes = ({ entidadID, vacantes, setVacantes, setVacante, setIsModalOpen, setSelectedPostulaciones, fetchPostulaciones }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedVacante, setSelectedVacante] = useState(null);
 
   const fetchVacantes = async () => {
     try {
-      const response = await axios.get('https://gestor-practicas-back-production.up.railway.app/vacantePractica');
+      setVacantes([]); // Limpiar el estado antes de hacer la solicitud
+      const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/vacantePractica/${entidadID}`);
       setVacantes(response.data);
     } catch (error) {
       console.error('Error fetching vacantes:', error);
@@ -21,7 +22,7 @@ const ListaVacantes = ({ vacantes, setVacantes, setVacante, setIsModalOpen, setS
 
   useEffect(() => {
     fetchVacantes();
-  }, []);
+  }, [entidadID]);
 
   const handleDelete = async (vacantePracticaID, event) => {
     event.preventDefault();
@@ -122,6 +123,7 @@ const ListaVacantes = ({ vacantes, setVacantes, setVacante, setIsModalOpen, setS
 };
 
 ListaVacantes.propTypes = {
+  entidadID: PropTypes.number.isRequired,
   vacantes: PropTypes.arrayOf(
     PropTypes.shape({
       vacantePracticaID: PropTypes.number.isRequired,
@@ -137,7 +139,7 @@ ListaVacantes.propTypes = {
   setVacante: PropTypes.func.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
   setSelectedPostulaciones: PropTypes.func.isRequired,
-  fetchPostulaciones: PropTypes.func.isRequired, // Asegúrate de pasar la función aquí
+  fetchPostulaciones: PropTypes.func.isRequired,
 };
 
 export default ListaVacantes;
