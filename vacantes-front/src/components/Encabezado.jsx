@@ -26,7 +26,7 @@ const Encabezado = ({ user, logOut }) => {
                   <Link to="#" className="nav-link">Estudiantes</Link>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link">Empresas</a>
+                  <a href="#" className="nav-link">google</a>
                 </li>
                 <li className="nav-item">
                   <a href="#" className="nav-link">DASC</a>
