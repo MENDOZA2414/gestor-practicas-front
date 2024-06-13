@@ -97,12 +97,24 @@ const Administrar = ({ currentUser }) => {
         showConfirmButton: true
       });
     } else {
-      setSelectedItem(item);
-      setConfirmAction('delete');
-      setConfirmMessage(`¿Estás seguro de que deseas eliminar esta ${selectedOption.slice(0, -1)}?`);
-      setShowConfirmModal(true);
+      Swal.fire({
+        title: '¿Estás seguro de que deseas eliminar este elemento?',
+        text: "Esta acción no se puede deshacer",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setSelectedItem(item);
+          setConfirmAction('delete');
+          handleConfirm(); // Llama a handleConfirm directamente
+        }
+      });
     }
-  };
+};
 
   const handleViewClick = async (item) => {
     try {
