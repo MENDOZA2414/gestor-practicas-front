@@ -7,7 +7,7 @@ const Encabezado = ({ user, logOut }) => {
       <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary">
         <div className="container-fluid px-5">
           <Link to="/" className="navbar-brand mx-auto mx-lg-0 d-flex align-items-center">
-            <img src="../../public/dasc.png" className="bi me-5" width="150" height="52" alt="Logo" />
+            <img src={process.env.PUBLIC_URL + "/dasc.png"} className="bi me-5" width="150" height="52" alt="Logo" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span className="navbar-toggler-icon"></span>
