@@ -146,7 +146,7 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
         Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Error al crear/actualizar la vacante: ' + error.response.data.message,
+            text: 'Error al crear/actualizar la vacante: ' + (error.response?.data?.message || error.message),
         });
     }
   };
@@ -158,7 +158,7 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
       const response = await axios.get(`/vacantePractica/${storedUser.entidadID}`);
       setVacantes(response.data);
     } catch (error) {
-      alert('Error al obtener las vacantes: ' + error.response.data.message);
+      alert('Error al obtener las vacantes: ' + (error.response?.data?.message || error.message));
     }
   };
 
@@ -179,7 +179,7 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
         setPostulaciones([]);
       } else {
         console.error('Error al obtener las postulaciones:', error);
-        alert('Error al obtener las postulaciones: ' + error.response.data.message);
+        alert('Error al obtener las postulaciones: ' + (error.response?.data?.message || error.message));
       }
     }
   };
@@ -230,8 +230,8 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
                 showConfirmButton: false,
                 timer: 1500
             });
-            fetchPostulaciones();
             fetchVacantes();
+            setPostulaciones([]); // Limpiar las postulaciones
         }
     } catch (error) {
         Swal.fire({
