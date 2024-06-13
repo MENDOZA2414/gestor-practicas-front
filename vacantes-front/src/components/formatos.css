@@ -1,9 +1,33 @@
 /* Contenedor principal para alinear la tarjeta */
 .main-container {
     display: flex;
+    flex-direction: column; /* Alinea los elementos en una columna */
     justify-content: flex-start; /* Alinea horizontalmente a la izquierda */
-    align-items: flex-start; /* Alinea verticalmente al inicio */
+    align-items: center; /* Alinea verticalmente al centro */
     padding: 20px; /* Añade espacio alrededor del contenedor */
+}
+
+/* Estilo para el título principal */
+.main-title {
+    font-size: 2.5em; /* Aumenta el tamaño del texto */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    text-align: center; /* Centra el texto */
+    color: #333; /* Color del texto */
+}
+
+/* Estilo para la nota lateral */
+.side-note {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Añade un margen inferior */
+    font-size: 1.2em; /* Tamaño del texto */
+    color: #666; /* Color del texto */
+}
+
+/* Estilo para el icono de la nota lateral */
+.side-note-icon {
+    margin-right: 10px; /* Añade un margen a la derecha del icono */
+    color: #666; /* Color del icono */
 }
 
 /* Ajustar el tamaño de la tarjeta y del texto */
@@ -12,7 +36,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 15px; /* Aumenta el padding para hacer la tarjeta más grande */
-    max-width: 350px; /* Aumenta el ancho máximo de la tarjeta */
+    max-width: 450px; /* Aumenta el ancho máximo de la tarjeta */
     border: 1px solid #ddd;
     font-size: 1em; /* Ajusta el tamaño del texto */
 }
@@ -35,6 +59,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px; /* Reduce el margen inferior de los elementos de la lista */
+    padding-bottom: 10px; /* Añade un poco de padding inferior */
+    border-bottom: 1px solid #ddd; /* Añade la línea divisoria */
 }
 
 /* Ajustar el tamaño del nombre del formato */
