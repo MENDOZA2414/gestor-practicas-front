@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaUser, FaBuilding, FaFileAlt, FaChalkboardTeacher, FaChartLine, FaSignOutAlt } from 'react-icons/fa';
 import './menu.css'; 
+import logo2 from '../../public/dasc.png';
+import logo from '../../public/dasc_icon.png';
 
 const MenuLateral = ({ userType, logOut, collapsed, toggleSidebar }) => {
   const location = useLocation();
@@ -44,7 +46,7 @@ const MenuLateral = ({ userType, logOut, collapsed, toggleSidebar }) => {
       <div className="sidebar-header">
         <Link to={menuOptions[userType][0].path}>
           <img
-            src={collapsed ? "./../public/dasc_icon.png" : "./../public/dasc.png"}
+            src={collapsed ? {logo} : {logo2}}
             className="logo"
             alt="Logo"
           />
