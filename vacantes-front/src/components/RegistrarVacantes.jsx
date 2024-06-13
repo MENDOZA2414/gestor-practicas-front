@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './registrarVacantes.css';
+
 const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
   const [title, setTitle] = useState('');
   const [city, setCity] = useState('');
@@ -145,7 +146,7 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
         Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Error al crear/actualizar la vacante: ' + error.response.data.message,
+            text: 'Error al crear/actualizar la vacante: ' + (error.response?.data?.message || error.message),
         });
     }
   };
@@ -153,10 +154,11 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
   const fetchVacantes = async () => {
     try {
       const storedUser = JSON.parse(localStorage.getItem('user'));
+      setVacantes([]); // Limpiar el estado antes de realizar la solicitud
       const response = await axios.get(`/vacantePractica/${storedUser.entidadID}`);
       setVacantes(response.data);
     } catch (error) {
-      alert('Error al obtener las vacantes: ' + error.response.data.message);
+      alert('Error al obtener las vacantes: ' + (error.response?.data?.message || error.message));
     }
   };
 
@@ -177,7 +179,7 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
         setPostulaciones([]);
       } else {
         console.error('Error al obtener las postulaciones:', error);
-        alert('Error al obtener las postulaciones: ' + error.response.data.message);
+        alert('Error al obtener las postulaciones: ' + (error.response?.data?.message || error.message));
       }
     }
   };
@@ -228,8 +230,8 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
                 showConfirmButton: false,
                 timer: 1500
             });
-            fetchPostulaciones();
             fetchVacantes();
+            setPostulaciones([]); // Limpiar las postulaciones
         }
     } catch (error) {
         Swal.fire({
@@ -374,6 +376,7 @@ const RegistrarVacantes = ({ setUser, pagina, setPagina }) => {
             <div className="registrar-vacantes-card">
               <div className="registrar-vacantes-card-body vacantes-lista">
                 <ListaVacantes
+                  entidadID={JSON.parse(localStorage.getItem('user')).entidadID}
                   setSelected_job={() => {}}
                   setEliminar={() => {}}
                   vacante={null}
