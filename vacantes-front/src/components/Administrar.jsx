@@ -231,7 +231,7 @@ const Administrar = ({ currentUser }) => {
           <p><strong>Fecha de Inicio:</strong> {moment(selectedItem.fechaInicio).format('YYYY-MM-DD')}</p>
           <p><strong>Fecha de Fin:</strong> {moment(selectedItem.fechaFin).format('YYYY-MM-DD')}</p>
           <p><strong>Ciudad:</strong> {selectedItem.ciudad}</p>
-          <p><strong>Tipo de Trabajo:</strong> {selectedItem.tipoTrabajo}</p>
+          <p><strong>Modalidad:</strong> {selectedItem.tipoTrabajo}</p>
         </>
       );
     } else if (selectedOption === 'entidades') {
