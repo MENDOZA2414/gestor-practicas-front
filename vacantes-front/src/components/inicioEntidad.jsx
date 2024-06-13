@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHome, FaUser, FaFileAlt, FaChartLine, FaBuilding, FaSignOutAlt, FaBars } from 'react-icons/fa';
+import { FaHome, FaUser, FaFileAlt, FaChartLine, FaBuilding, FaSignOutAlt, FaBars, FaArrowLeft } from 'react-icons/fa'; // Importa el icono de flecha
 import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import PerfilEntidadReceptora from './PerfilEntidadReceptora';
@@ -63,7 +63,12 @@ const InicioEntidad = ({ user, logOut }) => {
       />
       <div className={`content ${collapsed ? 'collapsed' : ''}`}>
         <Routes>
-          <Route path="/" element={<h1>Resumen de la entidad</h1>} />
+          <Route path="/" element={
+            <div className="default-message">
+              <FaArrowLeft className="arrow-icon" />
+              <h1>Selecciona una de las opciones del menú lateral</h1>
+            </div>
+          } />
           <Route path="perfil" element={<PerfilEntidadReceptora user={currentUser} setUser={setCurrentUser} />} />
           <Route path="registrarVacantes" element={<RegistrarVacantes setUser={setCurrentUser} pagina={pagina} setPagina={setPagina} />} />
           <Route path="listaPracticas" element={<ListaPracticas entidadID={currentUser?.entidadID} />} />

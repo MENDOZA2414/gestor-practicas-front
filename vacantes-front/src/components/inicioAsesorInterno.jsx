@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import { FaArrowLeft } from 'react-icons/fa'; // Importa el icono de flecha
 import PerfilAsesorInterno from './PerfilAsesorInterno';
 import Administrar from './Administrar';
 import DocumentosInterno from './DocumentosInterno'; 
@@ -62,7 +63,12 @@ const InicioAsesorInterno = ({ user, logOut }) => {
       />
       <div className={`content ${collapsed ? 'collapsed' : ''}`}>
         <Routes>
-          <Route path="/" element={<h1>Gestor de prácticas</h1>} />
+          <Route path="/" element={
+            <div className="default-message">
+              <FaArrowLeft className="arrow-icon" />
+              <h1>Selecciona una de las opciones del menú lateral</h1>
+            </div>
+          } />
           <Route path="perfil" element={<PerfilAsesorInterno user={currentUser} setUser={setCurrentUser} />} />
           <Route path="administrar" element={<Administrar currentUser={currentUser} />} /> {/* Asegúrate de pasar currentUser aquí */}
           <Route path="documentos" element={<DocumentosInterno userType={userType} />} />
@@ -71,6 +77,5 @@ const InicioAsesorInterno = ({ user, logOut }) => {
     </div>
   );
 };
-
 
 export default InicioAsesorInterno;

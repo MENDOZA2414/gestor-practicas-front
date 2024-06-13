@@ -1,5 +1,21 @@
 .inicio-asesor-interno {
     background-color: #F1F3F4;
     min-height: 100vh; 
-    overflow-x: hidden; 
+    overflow-x: hidden; /* Evita el scroll horizontal durante la transición */
+}
+
+.default-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20vh; /* Ajusta este valor según sea necesario */
+    color: #555;
+}
+
+.arrow-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #555; /* Ajusta el color según el diseño */
 }
