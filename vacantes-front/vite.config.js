@@ -3,16 +3,17 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: './',  
   build: {
-    outDir: "dist", // Output correcto para Vercel
-    emptyOutDir: true
+    outDir: 'dist',
+    emptyOutDir: true,
   },
   server: {
-    port: process.env.PORT || 3000,
-    host: true
+    port: 3000,
+    host: '0.0.0.0'
   },
   preview: {
-    port: process.env.PORT || 3000,
-    host: true
+    port: 3000,
+    host: '0.0.0.0'
   }
 });
