@@ -26,7 +26,7 @@ const Documentos = ({ userType }) => {
             }
 
             // Fetch documentos subidos
-            const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/documentoAlumnoSubidos/${numControl}`);
+            const response = await axios.get(`https://gestor-practicas-back.onrender.com/documentoAlumnoSubidos/${numControl}`);
             const sortedDocuments = sortDocuments(response.data); // Ordenar documentos
             setDocuments(sortedDocuments);
             if (response.data.length === 0) {
@@ -34,7 +34,7 @@ const Documentos = ({ userType }) => {
             }
 
             // Fetch alumno info
-            const alumnoResponse = await axios.get(`https://gestor-practicas-back-production.up.railway.app/alumno/${numControl}`);
+            const alumnoResponse = await axios.get(`https://gestor-practicas-back.onrender.com/alumno/${numControl}`);
             setAlumno(alumnoResponse.data);
 
             // Log para verificar los datos del alumno
@@ -57,7 +57,7 @@ const Documentos = ({ userType }) => {
             }
 
             // Fetch documentos aprobados
-            const sentResponse = await axios.get(`https://gestor-practicas-back-production.up.railway.app/documentoAlumnoAprobado/${numControl}`);
+            const sentResponse = await axios.get(`https://gestor-practicas-back.onrender.com/documentoAlumnoAprobado/${numControl}`);
             const sortedSentDocuments = sortDocuments(sentResponse.data); // Ordenar documentos enviados
             setSentDocuments(sortedSentDocuments);
             if (sentResponse.data.length === 0) {
@@ -98,7 +98,7 @@ const Documentos = ({ userType }) => {
             formData.append('nombreArchivo', file.name);
 
             try {
-                const response = await axios.post('https://gestor-practicas-back-production.up.railway.app/uploadDocumentoAlumnoSubido', formData, {
+                const response = await axios.post('https://gestor-practicas-back.onrender.com/uploadDocumentoAlumnoSubido', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
@@ -142,13 +142,13 @@ const Documentos = ({ userType }) => {
 
     const handleView = (id, table) => {
         if (id) {
-            window.open(`https://gestor-practicas-back-production.up.railway.app/${table}/${id}`, '_blank');
+            window.open(`https://gestor-practicas-back.onrender.com/${table}/${id}`, '_blank');
         }
     };
 
     const handleDownload = (id, nombreArchivo, table) => {
         if (id) {
-            axios.get(`https://gestor-practicas-back-production.up.railway.app/${table}/${id}`, {
+            axios.get(`https://gestor-practicas-back.onrender.com/${table}/${id}`, {
                 responseType: 'blob',
             }).then((response) => {
                 const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
@@ -178,7 +178,7 @@ const Documentos = ({ userType }) => {
 
         if (result.isConfirmed) {
             try {
-                await axios.delete(`https://gestor-practicas-back-production.up.railway.app/${table}/${id}`);
+                await axios.delete(`https://gestor-practicas-back.onrender.com/${table}/${id}`);
                 if (table === 'documentoAlumnoSubido') {
                     const updatedDocuments = documents.filter(doc => doc.id !== id);
                     setDocuments(sortDocuments(updatedDocuments)); // Ordenar documentos al eliminar
@@ -220,7 +220,7 @@ const Documentos = ({ userType }) => {
 
         if (numControl && selectedDocument && userType) {
             try {
-                const response = await axios.post('https://gestor-practicas-back-production.up.railway.app/enviarDocumentoAlumno', {
+                const response = await axios.post('https://gestor-practicas-back.onrender.com/enviarDocumentoAlumno', {
                     documentoID: selectedDocument.id,
                     userType: userType // Incluir el tipo de usuario en la solicitud
                 });

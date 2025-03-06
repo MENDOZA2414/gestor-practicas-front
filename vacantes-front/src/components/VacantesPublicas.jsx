@@ -47,14 +47,14 @@ const VacantesPublicas = () => {
 
     setLoading(true);
     try {
-      const { data } = await axios.post(`https://gestor-practicas-back-production.up.railway.app/persons`, persona);
+      const { data } = await axios.post(`https://gestor-practicas-back.onrender.com/persons`, persona);
       let idPersona;
       try {
         idPersona = await data.data.insertId;
       } catch (errooo) {
         idPersona = await data.person_id;
       }
-      const respuesta = await axios.post(`https://gestor-practicas-back-production.up.railway.app/apply`, {
+      const respuesta = await axios.post(`https://gestor-practicas-back.onrender.com/apply`, {
         job_id,
         persons_id: idPersona,
         salary,
@@ -83,7 +83,7 @@ const VacantesPublicas = () => {
 
   const getVacantes = async () => {
     try {
-      const { data } = await axios.get(`https://gestor-practicas-back-production.up.railway.app/job/all/1/5`);
+      const { data } = await axios.get(`https://gestor-practicas-back.onrender.com/job/all/1/5`);
       setVacantes(data);
     } catch (err) {
       Swal.fire({

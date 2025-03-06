@@ -25,7 +25,7 @@ const InicioEntidad = ({ user, logOut }) => {
       try {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser) {
-          const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/entidadReceptora/${storedUser.id}`);
+          const response = await axios.get(`https://gestor-practicas-back.onrender.com/entidadReceptora/${storedUser.id}`);
           const userData = response.data;
           userData.foto = userData.fotoPerfil ? `data:image/jpeg;base64,${userData.fotoPerfil}` : 'ruta/a/imagen/predeterminada.png';
           setCurrentUser({

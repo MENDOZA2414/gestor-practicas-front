@@ -32,7 +32,7 @@ const PerfilAsesorInterno = ({ user, setUser }) => {
           throw new Error('No se encontró el ID del asesor logueado');
         }
 
-        const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/asesorInterno/${asesorId}`);
+        const response = await axios.get(`https://gestor-practicas-back.onrender.com/asesorInterno/${asesorId}`);
         const asesorData = response.data;
         asesorData.foto = asesorData.fotoPerfil ? `data:image/jpeg;base64,${asesorData.fotoPerfil}` : defaultImage;
         setAsesor(asesorData);
@@ -157,7 +157,7 @@ const PerfilAsesorInterno = ({ user, setUser }) => {
         formData.append('foto', formValues.fotoFile);
       }
 
-      await axios.put(`https://gestor-practicas-back-production.up.railway.app/asesorInterno/${formValues.asesorInternoID}`, formData, {
+      await axios.put(`https://gestor-practicas-back.onrender.com/asesorInterno/${formValues.asesorInternoID}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -202,7 +202,7 @@ const PerfilAsesorInterno = ({ user, setUser }) => {
 
   const verificarCorreoDuplicado = async () => {
     try {
-      const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicateEmailExceptCurrent', {
+      const { data } = await axios.post('https://gestor-practicas-back.onrender.com/checkDuplicateEmailExceptCurrent', {
         correo: formValues.correo,
         id: formValues.asesorInternoID,
         userType: 'asesorInterno'
@@ -222,7 +222,7 @@ const PerfilAsesorInterno = ({ user, setUser }) => {
   
   const verificarCelularDuplicado = async () => {
     try {
-      const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicatePhoneExceptCurrent', {
+      const { data } = await axios.post('https://gestor-practicas-back.onrender.com/checkDuplicatePhoneExceptCurrent', {
         numCelular: formValues.numCelular,
         id: formValues.asesorInternoID,
         userType: 'asesorInterno'

@@ -35,7 +35,7 @@ const RegistrarAlumno = () => {
     useEffect(() => {
         const fetchAsesoresInternos = async () => {
             try {
-                const { data } = await axios.get('https://gestor-practicas-back-production.up.railway.app/asesoresInternos');
+                const { data } = await axios.get('https://gestor-practicas-back.onrender.com/asesoresInternos');
                 setAsesoresInternos(data);
             } catch (err) {
                 console.error('Error al obtener asesores internos:', err);
@@ -122,7 +122,7 @@ const RegistrarAlumno = () => {
 
     const verificarCorreoDuplicado = async () => {
         try {
-            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicateEmail', { correo: email });
+            const { data } = await axios.post('https://gestor-practicas-back.onrender.com/checkDuplicateEmail', { correo: email });
             return data.exists;
         } catch (err) {
             Swal.fire({
@@ -138,7 +138,7 @@ const RegistrarAlumno = () => {
 
     const verificarCelularDuplicado = async () => {
         try {
-            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicatePhone', { numCelular: celular });
+            const { data } = await axios.post('https://gestor-practicas-back.onrender.com/checkDuplicatePhone', { numCelular: celular });
             return data.exists;
         } catch (err) {
             Swal.fire({
@@ -244,7 +244,7 @@ const RegistrarAlumno = () => {
             formData.append('asesorInternoID', asesorInternoID);
             formData.append('foto', foto);
 
-            const { data } = await axios.post(`https://gestor-practicas-back-production.up.railway.app/register/alumno`, formData, {
+            const { data } = await axios.post(`https://gestor-practicas-back.onrender.com/register/alumno`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

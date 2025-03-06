@@ -18,14 +18,14 @@ const Asesor = () => {
         }
 
         // Obtener datos del alumno
-        const responseAlumno = await axios.get(`https://gestor-practicas-back-production.up.railway.app/alumno/${numControl}`);
+        const responseAlumno = await axios.get(`https://gestor-practicas-back.onrender.com/alumno/${numControl}`);
         const alumnoData = responseAlumno.data;
         setAlumnoCorreo(alumnoData.correo);
         console.log('Datos del alumno:', alumnoData);
 
         // Obtener datos del asesor interno
         if (alumnoData.asesorInternoID) {
-          const responseInterno = await axios.get(`https://gestor-practicas-back-production.up.railway.app/asesorInterno/${alumnoData.asesorInternoID}`);
+          const responseInterno = await axios.get(`https://gestor-practicas-back.onrender.com/asesorInterno/${alumnoData.asesorInternoID}`);
           const asesorInternoData = responseInterno.data;
           asesorInternoData.foto = `data:image/jpeg;base64,${asesorInternoData.fotoPerfil}`;
           setAsesorInterno(asesorInternoData);
@@ -43,12 +43,12 @@ const Asesor = () => {
 
         // Obtener la práctica profesional del alumno
         try {
-          const responsePractica = await axios.get(`https://gestor-practicas-back-production.up.railway.app/practicaProfesional/alumno/${numControl}`);
+          const responsePractica = await axios.get(`https://gestor-practicas-back.onrender.com/practicaProfesional/alumno/${numControl}`);
           const practicaData = responsePractica.data;
 
           if (practicaData.asesorExternoID) {
             // Obtener datos del asesor externo
-            const responseExterno = await axios.get(`https://gestor-practicas-back-production.up.railway.app/asesorExterno/${practicaData.asesorExternoID}`);
+            const responseExterno = await axios.get(`https://gestor-practicas-back.onrender.com/asesorExterno/${practicaData.asesorExternoID}`);
             const asesorExternoData = responseExterno.data;
             asesorExternoData.foto = `data:image/jpeg;base64,${asesorExternoData.fotoPerfil}`;
             setAsesorExterno(asesorExternoData);

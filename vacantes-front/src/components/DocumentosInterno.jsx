@@ -29,7 +29,7 @@ const DocumentosInterno = ({ userType }) => {  // Asegúrate de recibir userType
                     throw new Error('No se encontró el ID del asesor logueado');
                 }
 
-                const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/alumnos/${asesorID}`);
+                const response = await axios.get(`https://gestor-practicas-back.onrender.com/alumnos/${asesorID}`);
                 console.log('Students data received:', response.data);
                 setStudents(response.data);
             } catch (error) {
@@ -45,8 +45,8 @@ const DocumentosInterno = ({ userType }) => {  // Asegúrate de recibir userType
     const handleFolderClick = async (studentId) => {
         try {
             console.log(`Clicked on student with ID: ${studentId}`);
-            const responsePending = await axios.get(`https://gestor-practicas-back-production.up.railway.app/documentoAlumnoRegistrado/${studentId}`);
-            const responseApproved = await axios.get(`https://gestor-practicas-back-production.up.railway.app/documentoAlumnoAprobado/${studentId}`);
+            const responsePending = await axios.get(`https://gestor-practicas-back.onrender.com/documentoAlumnoRegistrado/${studentId}`);
+            const responseApproved = await axios.get(`https://gestor-practicas-back.onrender.com/documentoAlumnoAprobado/${studentId}`);
             
             setPendingDocuments(responsePending.data);
             setApprovedDocuments(responseApproved.data);
@@ -82,7 +82,7 @@ const DocumentosInterno = ({ userType }) => {  // Asegúrate de recibir userType
     const handleApprove = async (documentId) => {
         try {
             console.log("handleApprove - userType:", userType);  // Agregar console.log para verificar userType
-            await axios.post(`https://gestor-practicas-back-production.up.railway.app/documentoAlumno/approve`, { documentId, userType });
+            await axios.post(`https://gestor-practicas-back.onrender.com/documentoAlumno/approve`, { documentId, userType });
             setPendingDocuments(prev => prev.filter(doc => doc.id !== documentId));
             const approvedDoc = pendingDocuments.find(doc => doc.id === documentId);
             setApprovedDocuments(prev => [...prev, approvedDoc]);
@@ -109,7 +109,7 @@ const DocumentosInterno = ({ userType }) => {  // Asegúrate de recibir userType
     const handleReject = async (documentId) => {
         try {
             console.log("handleReject - userType:", userType);  // Agregar log para verificar
-            await axios.post(`https://gestor-practicas-back-production.up.railway.app/documentoAlumno/reject`, { documentId, userType });
+            await axios.post(`https://gestor-practicas-back.onrender.com/documentoAlumno/reject`, { documentId, userType });
             setPendingDocuments(prev => prev.filter(doc => doc.id !== documentId));
             Swal.fire({
                 position: 'top-end',
@@ -137,13 +137,13 @@ const DocumentosInterno = ({ userType }) => {  // Asegúrate de recibir userType
 
     const handleView = (documentId) => {
         if (documentId) {
-            window.open(`https://gestor-practicas-back-production.up.railway.app/documentoAlumno/${documentId}`, '_blank');
+            window.open(`https://gestor-practicas-back.onrender.com/documentoAlumno/${documentId}`, '_blank');
         }
     };
 
     const handleDownload = (documentId, nombreArchivo) => {
         if (documentId) {
-            axios.get(`https://gestor-practicas-back-production.up.railway.app/documentoAlumno/${documentId}`, {
+            axios.get(`https://gestor-practicas-back.onrender.com/documentoAlumno/${documentId}`, {
                 responseType: 'blob',
             }).then((response) => {
                 const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
@@ -173,7 +173,7 @@ const DocumentosInterno = ({ userType }) => {  // Asegúrate de recibir userType
 
         if (result.isConfirmed) {
             try {
-                await axios.delete(`https://gestor-practicas-back-production.up.railway.app/documentoAlumno/${documentId}`);
+                await axios.delete(`https://gestor-practicas-back.onrender.com/documentoAlumno/${documentId}`);
                 setApprovedDocuments(approvedDocuments.filter(doc => doc.id !== documentId));
                 Swal.fire({
                     position: 'top-end',
@@ -242,7 +242,7 @@ const DocumentosInterno = ({ userType }) => {  // Asegúrate de recibir userType
                     <div className="cards-container">
                         {!selectedStudent && students.filter(student => student.nombre.toLowerCase().includes(searchQuery.toLowerCase())).map(student => (
                             <div className="student-card" key={student.numControl} onClick={() => handleFolderClick(student.numControl)}>
-                                <img src={`https://gestor-practicas-back-production.up.railway.app/image/${student.numControl}`} alt={student.nombre} className="student-photo" />
+                                <img src={`https://gestor-practicas-back.onrender.com/image/${student.numControl}`} alt={student.nombre} className="student-photo" />
                                 <div className="student-info">
                                     <h3>{student.nombre}</h3>
                                     <div className="student-details">

@@ -37,7 +37,7 @@ const Perfil = ({ user, setUser }) => {
           throw new Error('No se encontró el número de control del alumno logueado');
         }
 
-        const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/alumno/${numControl}`);
+        const response = await axios.get(`https://gestor-practicas-back.onrender.com/alumno/${numControl}`);
         const alumnoData = response.data;
         alumnoData.foto = alumnoData.fotoPerfil ? `data:image/jpeg;base64,${alumnoData.fotoPerfil}` : defaultImage;
         alumnoData.fechaNacimiento = moment(alumnoData.fechaNacimiento).format('YYYY-MM-DD');
@@ -200,7 +200,7 @@ const Perfil = ({ user, setUser }) => {
         formData.set('fechaNacimiento', formattedDate);
       }
 
-      await axios.put(`https://gestor-practicas-back-production.up.railway.app/alumno/${formValues.numControl}`, formData, {
+      await axios.put(`https://gestor-practicas-back.onrender.com/alumno/${formValues.numControl}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -245,7 +245,7 @@ const Perfil = ({ user, setUser }) => {
 
   const verificarCorreoDuplicado = async () => {
     try {
-      const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicateEmailAlumno', { correo: formValues.correo, numControl: formValues.numControl });
+      const { data } = await axios.post('https://gestor-practicas-back.onrender.com/checkDuplicateEmailAlumno', { correo: formValues.correo, numControl: formValues.numControl });
       return data.exists;
     } catch (err) {
       Swal.fire({
@@ -261,7 +261,7 @@ const Perfil = ({ user, setUser }) => {
 
   const verificarCelularDuplicado = async () => {
     try {
-      const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicatePhoneAlumno', { numCelular: formValues.numCelular, numControl: formValues.numControl });
+      const { data } = await axios.post('https://gestor-practicas-back.onrender.com/checkDuplicatePhoneAlumno', { numCelular: formValues.numCelular, numControl: formValues.numControl });
       return data.exists;
     } catch (err) {
       Swal.fire({

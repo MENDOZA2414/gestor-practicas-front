@@ -15,7 +15,7 @@ const Vacantes = () => {
   useEffect(() => {
     const fetchVacantes = async () => {
       try {
-        const response = await axios.get('https://gestor-practicas-back-production.up.railway.app/vacantePractica/all/1/100');
+        const response = await axios.get('https://gestor-practicas-back.onrender.com/vacantePractica/all/1/100');
         setVacantes(response.data);
       } catch (error) {
         console.error('Error fetching vacantes:', error);
@@ -39,7 +39,7 @@ const Vacantes = () => {
       const alumnoID = storedUser ? storedUser.id : '';
 
       try {
-        const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/postulaciones/${alumnoID}`);
+        const response = await axios.get(`https://gestor-practicas-back.onrender.com/postulaciones/${alumnoID}`);
         setPostulaciones(response.data.map(postulacion => postulacion.vacanteID));
       } catch (error) {
         console.error('Error fetching postulaciones:', error);
@@ -70,7 +70,7 @@ const Vacantes = () => {
     const alumnoID = storedUser ? storedUser.id : '';
 
     try {
-      const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/checkPostulacion/${alumnoID}/${vacante.vacantePracticaID}`);
+      const response = await axios.get(`https://gestor-practicas-back.onrender.com/checkPostulacion/${alumnoID}/${vacante.vacantePracticaID}`);
       if (response.data.aplicado) {
         Swal.fire({
           icon: 'warning',
@@ -108,7 +108,7 @@ const Vacantes = () => {
       formData.append('cartaPresentacion', file);
 
       try {
-        const response = await axios.post('https://gestor-practicas-back-production.up.railway.app/registerPostulacion', formData, {
+        const response = await axios.post('https://gestor-practicas-back.onrender.com/registerPostulacion', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

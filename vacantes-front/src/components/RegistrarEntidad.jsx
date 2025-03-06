@@ -100,7 +100,7 @@ const RegistrarEntidad = () => {
 
     const verificarCorreoDuplicado = async () => {
         try {
-            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicateEmail', { correo });
+            const { data } = await axios.post('https://gestor-practicas-back.onrender.com/checkDuplicateEmail', { correo });
             return data.exists;
         } catch (err) {
             Swal.fire({
@@ -116,7 +116,7 @@ const RegistrarEntidad = () => {
 
     const verificarCelularDuplicado = async () => {
         try {
-            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/checkDuplicatePhone', { numCelular });
+            const { data } = await axios.post('https://gestor-practicas-back.onrender.com/checkDuplicatePhone', { numCelular });
             return data.exists;
         } catch (err) {
             Swal.fire({
@@ -241,7 +241,7 @@ const RegistrarEntidad = () => {
             formData.append('password', password);
             formData.append('numCelular', numCelular);
 
-            const { data } = await axios.post('https://gestor-practicas-back-production.up.railway.app/register/entidadReceptora', formData, {
+            const { data } = await axios.post('https://gestor-practicas-back.onrender.com/register/entidadReceptora', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

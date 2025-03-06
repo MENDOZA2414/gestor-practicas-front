@@ -13,7 +13,7 @@ const ListaVacantes = ({ entidadID, vacantes, setVacantes, setVacante, setIsModa
   const fetchVacantes = async () => {
     try {
       setVacantes([]); // Limpiar el estado antes de hacer la solicitud
-      const response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/vacantePractica/${entidadID}`);
+      const response = await axios.get(`https://gestor-practicas-back.onrender.com/vacantePractica/${entidadID}`);
       setVacantes(response.data);
     } catch (error) {
       console.error('Error fetching vacantes:', error);
@@ -40,7 +40,7 @@ const ListaVacantes = ({ entidadID, vacantes, setVacantes, setVacante, setIsModa
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`https://gestor-practicas-back-production.up.railway.app/vacantePractica/${vacantePracticaID}`);
+        await axios.delete(`https://gestor-practicas-back.onrender.com/vacantePractica/${vacantePracticaID}`);
         Swal.fire(
           'Eliminado',
           'La vacante y sus postulaciones han sido eliminadas.',

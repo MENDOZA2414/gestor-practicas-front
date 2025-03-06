@@ -23,18 +23,18 @@ const Administrar = ({ currentUser }) => {
       if (isRegistered) {
         switch (selectedOption) {
           case 'entidades':
-            response = await axios.get('https://gestor-practicas-back-production.up.railway.app/entidades', {
+            response = await axios.get('https://gestor-practicas-back.onrender.com/entidades', {
               params: { estatus: 'Aceptado' }
             });
             break;
           case 'alumnos':
-            response = await axios.get('https://gestor-practicas-back-production.up.railway.app/alumnos', {
+            response = await axios.get('https://gestor-practicas-back.onrender.com/alumnos', {
               params: { asesorInternoID: currentUser.asesorInternoID, estatus: 'Aceptado' }
             });
             break;
           case 'vacantes':
           default:
-            response = await axios.get('https://gestor-practicas-back-production.up.railway.app/vacantePractica', {
+            response = await axios.get('https://gestor-practicas-back.onrender.com/vacantePractica', {
               params: { estatus: 'Aceptado' }
             });
             break;
@@ -42,18 +42,18 @@ const Administrar = ({ currentUser }) => {
       } else {
         switch (selectedOption) {
           case 'entidades':
-            response = await axios.get('https://gestor-practicas-back-production.up.railway.app/entidades', {
+            response = await axios.get('https://gestor-practicas-back.onrender.com/entidades', {
               params: { estatus: null }
             });
             break;
           case 'alumnos':
-            response = await axios.get('https://gestor-practicas-back-production.up.railway.app/alumnos', {
+            response = await axios.get('https://gestor-practicas-back.onrender.com/alumnos', {
               params: { asesorInternoID: currentUser.asesorInternoID, estatus: null }
             });
             break;
           case 'vacantes':
           default:
-            response = await axios.get('https://gestor-practicas-back-production.up.railway.app/vacantePractica', {
+            response = await axios.get('https://gestor-practicas-back.onrender.com/vacantePractica', {
               params: { estatus: null }
             });
             break;
@@ -120,11 +120,11 @@ const Administrar = ({ currentUser }) => {
     try {
       let response;
       if (selectedOption === 'alumnos') {
-        response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/alumno/${item.numControl}`);
+        response = await axios.get(`https://gestor-practicas-back.onrender.com/alumno/${item.numControl}`);
       } else if (selectedOption === 'entidades') {
-        response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/entidadReceptora/${item.entidadID}`);
+        response = await axios.get(`https://gestor-practicas-back.onrender.com/entidadReceptora/${item.entidadID}`);
       } else if (selectedOption === 'vacantes') {
-        response = await axios.get(`https://gestor-practicas-back-production.up.railway.app/vacantePractica/${item.vacantePracticaID}`);
+        response = await axios.get(`https://gestor-practicas-back.onrender.com/vacantePractica/${item.vacantePracticaID}`);
       }
       setSelectedItem({ ...response.data, logoEmpresa: item.logoEmpresa }); // Agrega logoEmpresa al selectedItem
       setShowModal(true);
@@ -138,11 +138,11 @@ const Administrar = ({ currentUser }) => {
     try {
       if (confirmAction === 'accept') {
         if (selectedOption === 'alumnos') {
-          await axios.put(`https://gestor-practicas-back-production.up.railway.app/alumno/aceptar/${selectedItem.numControl}`);
+          await axios.put(`https://gestor-practicas-back.onrender.com/alumno/aceptar/${selectedItem.numControl}`);
         } else if (selectedOption === 'vacantes') {
-          await axios.put(`https://gestor-practicas-back-production.up.railway.app/vacantePractica/aceptar/${selectedItem.vacantePracticaID}`);
+          await axios.put(`https://gestor-practicas-back.onrender.com/vacantePractica/aceptar/${selectedItem.vacantePracticaID}`);
         } else if (selectedOption === 'entidades') {
-          await axios.put(`https://gestor-practicas-back-production.up.railway.app/entidadReceptora/aceptar/${selectedItem.entidadID}`);
+          await axios.put(`https://gestor-practicas-back.onrender.com/entidadReceptora/aceptar/${selectedItem.entidadID}`);
         }
         Swal.fire({
           position: 'center',
@@ -153,11 +153,11 @@ const Administrar = ({ currentUser }) => {
         });
       } else if (confirmAction === 'reject') {
         if (selectedOption === 'alumnos') {
-          await axios.put(`https://gestor-practicas-back-production.up.railway.app/alumno/rechazar/${selectedItem.numControl}`);
+          await axios.put(`https://gestor-practicas-back.onrender.com/alumno/rechazar/${selectedItem.numControl}`);
         } else if (selectedOption === 'vacantes') {
-          await axios.put(`https://gestor-practicas-back-production.up.railway.app/vacantePractica/rechazar/${selectedItem.vacantePracticaID}`);
+          await axios.put(`https://gestor-practicas-back.onrender.com/vacantePractica/rechazar/${selectedItem.vacantePracticaID}`);
         } else if (selectedOption === 'entidades') {
-          await axios.put(`https://gestor-practicas-back-production.up.railway.app/entidadReceptora/rechazar/${selectedItem.entidadID}`);
+          await axios.put(`https://gestor-practicas-back.onrender.com/entidadReceptora/rechazar/${selectedItem.entidadID}`);
         }
         Swal.fire({
           position: 'center',
@@ -168,11 +168,11 @@ const Administrar = ({ currentUser }) => {
         });
       } else if (confirmAction === 'delete') {
         if (selectedOption === 'alumnos') {
-          await axios.delete(`https://gestor-practicas-back-production.up.railway.app/alumno/${selectedItem.numControl}`);
+          await axios.delete(`https://gestor-practicas-back.onrender.com/alumno/${selectedItem.numControl}`);
         } else if (selectedOption === 'vacantes') {
-          await axios.delete(`https://gestor-practicas-back-production.up.railway.app/vacantePractica/${selectedItem.vacantePracticaID}`);
+          await axios.delete(`https://gestor-practicas-back.onrender.com/vacantePractica/${selectedItem.vacantePracticaID}`);
         } else if (selectedOption === 'entidades') {
-          await axios.delete(`https://gestor-practicas-back-production.up.railway.app/entidadReceptora/${selectedItem.entidadID}`);
+          await axios.delete(`https://gestor-practicas-back.onrender.com/entidadReceptora/${selectedItem.entidadID}`);
         }
         Swal.fire({
           position: 'center',
